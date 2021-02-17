@@ -10,11 +10,16 @@
         <action
             android:id="@+id/action_homeFragment_to_noteDetailFragment"
             app:destination="@id/noteDetailFragment" />
-
     </fragment>
 
     <fragment
         android:id="@+id/noteDetailFragment"
         android:name="com.joenjogu.notesy.NoteDetailFragment"
-        android:label="NoteDetailFragment" />
+        android:label="NoteDetailFragment" >
+
+        <argument
+            app:argType="integer"
+            android:name="note_id"/>
+
+    </fragment>
 </navigation>
