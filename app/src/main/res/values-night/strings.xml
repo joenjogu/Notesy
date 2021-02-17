@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="note_goes_here">Note goes here</string>
+    <string name="title">Title</string>
+    <string name="delete">Delete</string>
+</resources>

@@ -10,9 +10,7 @@
         <action
             android:id="@+id/action_homeFragment_to_noteDetailFragment"
             app:destination="@id/noteDetailFragment" />
-        <argument
-            app:argType="Int"
-            android:name="note_id"/>
+
     </fragment>
 
     <fragment
