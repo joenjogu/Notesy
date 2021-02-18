@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import com.joenjogu.notesy.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -17,6 +18,11 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
+
+        binding.fabAddNote.setOnClickListener {
+            val direction = HomeFragmentDirections.actionHomeFragmentToNoteDetailFragment()
+            it.findNavController().navigate(direction)
+        }
 
         return binding.root
     }

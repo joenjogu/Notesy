@@ -26,15 +26,19 @@
 
             <ImageView
                 android:id="@+id/note_image"
-                android:src="@drawable/ic_launcher_foreground"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
+                android:padding="@dimen/fab_margin"
                 android:layout_height="match_parent"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_launcher_foreground"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" />
+                app:srcCompat="@drawable/note_icon" />
 
             <TextView
                 android:id="@+id/note_title"
+                android:text="@{note.noteText}"
                 android:layout_marginStart="4dp"
                 android:maxLines="1"
                 android:ellipsize="end"
@@ -48,6 +52,7 @@
 
             <TextView
                 android:id="@+id/note_description"
+                android:text="@{note.noteText}"
                 android:layout_marginStart="4dp"
                 android:maxLines="2"
                 android:ellipsize="end"

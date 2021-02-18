@@ -18,8 +18,9 @@
         android:label="NoteDetailFragment" >
 
         <argument
+            android:name="note_id"
             app:argType="integer"
-            android:name="note_id"/>
+            android:defaultValue="0"/>
 
     </fragment>
 </navigation>

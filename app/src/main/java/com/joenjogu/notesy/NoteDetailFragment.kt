@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import com.joenjogu.notesy.databinding.FragmentNoteDetailBinding
 
 class NoteDetailFragment : Fragment() {
     private lateinit var binding : FragmentNoteDetailBinding
+    private val navArgs: NoteDetailFragmentArgs by navArgs()
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -17,6 +19,8 @@ class NoteDetailFragment : Fragment() {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_note_detail, container, false)
         setHasOptionsMenu(true)
+
+        val noteId = navArgs.noteId
 
         return binding.root
     }
