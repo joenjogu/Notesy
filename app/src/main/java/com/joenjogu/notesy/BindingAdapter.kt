@@ -7,6 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 fun RecyclerView.bindRecyclerViewAdapter(adapter: RecyclerView.Adapter<*>) {
     this.run {
         setHasFixedSize(true)
-        setAdapter(adapter)
+        this.adapter = adapter
     }
 }

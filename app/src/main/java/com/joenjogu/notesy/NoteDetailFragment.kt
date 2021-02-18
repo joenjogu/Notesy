@@ -22,6 +22,12 @@ class NoteDetailFragment : Fragment() {
 
         val noteId = navArgs.noteId
 
+        binding.noteDetailFab.setOnClickListener {
+            if (checkEditTextsNotEmpty()) {
+                TODO("save results to db")
+            }
+        }
+
         return binding.root
     }
 
@@ -39,4 +45,19 @@ class NoteDetailFragment : Fragment() {
         }
     }
 
+    private fun checkEditTextsNotEmpty(): Boolean {
+        var titleText = false
+        var descriptionText = false
+        if (binding.noteDetailTitle.text.isEmpty()) {
+            binding.noteDetailTitle.error = getString(R.string.required_field)
+        } else {
+            titleText = true
+        }
+        if (binding.noteDetailText.text.isEmpty()) {
+            binding.noteDetailText.error = getString(R.string.required_field)
+        } else {
+            descriptionText = true
+        }
+        return titleText and descriptionText
+    }
 }

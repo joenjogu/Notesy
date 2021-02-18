@@ -6,4 +6,5 @@
     <string name="note_goes_here">Note goes here</string>
     <string name="title">Title</string>
     <string name="delete">Delete</string>
+    <string name="required_field">Required Field!</string>
 </resources>
