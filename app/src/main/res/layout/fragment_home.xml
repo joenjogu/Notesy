@@ -48,6 +48,7 @@
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
             <include
+                android:id="@+id/recyclerview_layout"
                 layout="@layout/note_list_recyclerview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>

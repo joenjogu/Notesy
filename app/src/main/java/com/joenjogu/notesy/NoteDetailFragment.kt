@@ -4,12 +4,15 @@ import android.os.Bundle
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.joenjogu.notesy.databinding.FragmentNoteDetailBinding
 
 class NoteDetailFragment : Fragment() {
     private lateinit var binding : FragmentNoteDetailBinding
     private val navArgs: NoteDetailFragmentArgs by navArgs()
+    private val viewModel: NoteDetailViewModel by viewModels()
+    private val noteId = navArgs.noteId
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -20,11 +23,15 @@ class NoteDetailFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_note_detail, container, false)
         setHasOptionsMenu(true)
 
-        val noteId = navArgs.noteId
-
+        viewModel.getNote(noteId).observe(viewLifecycleOwner){
+            binding.note = it
+        }
         binding.noteDetailFab.setOnClickListener {
+            val noteTitle = binding.noteDetailTitle.text.trim().toString()
+            val noteText = binding.noteDetailText.text.trim().toString()
             if (checkEditTextsNotEmpty()) {
-                TODO("save results to db")
+                val note = Note(noteTitle = noteTitle, noteText = noteText)
+                viewModel.insertNote(note)
             }
         }
 
@@ -38,7 +45,7 @@ class NoteDetailFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return if (item.itemId == R.id.action_delete) {
-            // handle delete click
+            viewModel.deleteNote(noteId)
             true
         } else {
             super.onOptionsItemSelected(item)

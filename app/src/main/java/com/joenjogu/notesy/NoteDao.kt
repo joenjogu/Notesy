@@ -8,8 +8,8 @@ interface NoteDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertNote(note: Note)
 
-    @Delete
-    suspend fun deleteNote(note: Note)
+    @Query("DELETE FROM note WHERE id = :id")
+    suspend fun deleteNote(id: Int)
 
     @Query("SELECT * FROM Note")
     fun getAllNotes(): LiveData<List<Note>>
