@@ -1,7 +1,8 @@
-package com.joenjogu.notesy
+package com.joenjogu.notesy.data
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.joenjogu.notesy.models.Note
 
 @Dao
 interface NoteDao {

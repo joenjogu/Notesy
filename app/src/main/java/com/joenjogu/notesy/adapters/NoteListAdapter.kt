@@ -1,4 +1,4 @@
-package com.joenjogu.notesy
+package com.joenjogu.notesy.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,9 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+//import com.joenjogu.notesy.HomeFragmentDirections
 import com.joenjogu.notesy.databinding.NoteListItemBinding
+import com.joenjogu.notesy.models.Note
 
 class NoteListAdapter : ListAdapter<Note, NoteListAdapter.NoteViewHolder>(DiffComparator){
 
@@ -35,8 +37,8 @@ class NoteListAdapter : ListAdapter<Note, NoteListAdapter.NoteViewHolder>(DiffCo
 
     private fun createOnClickListener(id: Int): View.OnClickListener {
         return View.OnClickListener {
-            val direction = HomeFragmentDirections.actionHomeFragmentToNoteDetailFragment(id)
-            it.findNavController().navigate(direction)
+//            val direction = HomeFragmentDirections.actionHomeFragmentToNoteDetailFragment(id)
+//            it.findNavController().navigate(direction)
         }
     }
 

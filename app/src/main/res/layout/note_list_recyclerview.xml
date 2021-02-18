@@ -6,7 +6,7 @@
     <data>
         <variable
             name="adapter"
-            type="com.joenjogu.notesy.NoteListAdapter" />
+            type="com.joenjogu.notesy.adapters.NoteListAdapter" />
 
     </data>
 

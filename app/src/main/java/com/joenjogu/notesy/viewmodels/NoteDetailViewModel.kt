@@ -1,8 +1,10 @@
-package com.joenjogu.notesy
+package com.joenjogu.notesy.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.joenjogu.notesy.data.Repository
+import com.joenjogu.notesy.models.Note
 import kotlinx.coroutines.launch
 
 class NoteDetailViewModel(private val repository: Repository) : ViewModel() {

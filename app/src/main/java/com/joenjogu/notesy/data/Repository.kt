@@ -1,4 +1,6 @@
-package com.joenjogu.notesy
+package com.joenjogu.notesy.data
+
+import com.joenjogu.notesy.models.Note
 
 class Repository(private val noteDao: NoteDao) {
 

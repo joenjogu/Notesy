@@ -1,4 +1,4 @@
-package com.joenjogu.notesy
+package com.joenjogu.notesy.ui
 
 import android.os.Bundle
 import android.view.*
@@ -6,7 +6,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
+import com.joenjogu.notesy.R
 import com.joenjogu.notesy.databinding.FragmentNoteDetailBinding
+import com.joenjogu.notesy.models.Note
+import com.joenjogu.notesy.viewmodels.NoteDetailViewModel
 
 class NoteDetailFragment : Fragment() {
     private lateinit var binding : FragmentNoteDetailBinding

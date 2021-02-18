@@ -1,4 +1,4 @@
-package com.joenjogu.notesy
+package com.joenjogu.notesy.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

@@ -5,7 +5,7 @@
     <data>
         <variable
             name="note"
-            type="com.joenjogu.notesy.Note" />
+            type="com.joenjogu.notesy.models.Note" />
 
     </data>
 

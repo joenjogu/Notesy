@@ -1,4 +1,4 @@
-package com.joenjogu.notesy
+package com.joenjogu.notesy.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,10 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
+import com.joenjogu.notesy.adapters.NoteListAdapter
+import com.joenjogu.notesy.R
 import com.joenjogu.notesy.databinding.FragmentHomeBinding
+import com.joenjogu.notesy.viewmodels.HomeFragmentViewModel
 
 class HomeFragment : Fragment() {
     private lateinit var binding : FragmentHomeBinding

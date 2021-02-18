@@ -1,9 +1,8 @@
-package com.joenjogu.notesy
+package com.joenjogu.notesy.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.NavController
-import androidx.navigation.findNavController
+import com.joenjogu.notesy.R
 
 class MainActivity : AppCompatActivity() {
 
