@@ -12,10 +12,11 @@ import com.joenjogu.notesy.adapters.NoteListAdapter
 import com.joenjogu.notesy.R
 import com.joenjogu.notesy.databinding.FragmentHomeBinding
 import com.joenjogu.notesy.viewmodels.HomeFragmentViewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
     private lateinit var binding : FragmentHomeBinding
-    private val viewModel: HomeFragmentViewModel by viewModels()
+    private val viewModel: HomeFragmentViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -10,12 +10,12 @@ import com.joenjogu.notesy.R
 import com.joenjogu.notesy.databinding.FragmentNoteDetailBinding
 import com.joenjogu.notesy.models.Note
 import com.joenjogu.notesy.viewmodels.NoteDetailViewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class NoteDetailFragment : Fragment() {
     private lateinit var binding : FragmentNoteDetailBinding
     private val navArgs: NoteDetailFragmentArgs by navArgs()
-    private val viewModel: NoteDetailViewModel by viewModels()
-    private val noteId = navArgs.noteId
+    private val viewModel: NoteDetailViewModel by viewModel()
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -26,7 +26,7 @@ class NoteDetailFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_note_detail, container, false)
         setHasOptionsMenu(true)
 
-        viewModel.getNote(noteId).observe(viewLifecycleOwner){
+        viewModel.getNote(navArgs.noteId).observe(viewLifecycleOwner){
             binding.note = it
         }
         binding.noteDetailFab.setOnClickListener {
@@ -48,7 +48,7 @@ class NoteDetailFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return if (item.itemId == R.id.action_delete) {
-            viewModel.deleteNote(noteId)
+            viewModel.deleteNote(navArgs.noteId)
             true
         } else {
             super.onOptionsItemSelected(item)
