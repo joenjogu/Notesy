@@ -16,20 +16,20 @@
     <androidx.cardview.widget.CardView
         android:onClick="@{clickListener}"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="90dp"
         app:cardCornerRadius="10dp"
         android:layout_margin="8dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_margin="6dp"
             android:layout_width="match_parent"
-            android:layout_height="100dp">
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/note_image"
                 android:layout_width="100dp"
-                android:padding="@dimen/fab_margin"
                 android:layout_height="match_parent"
+                android:padding="6dp"
                 android:scaleType="centerInside"
                 android:src="@drawable/note_icon"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -38,32 +38,34 @@
 
             <TextView
                 android:id="@+id/note_title"
-                android:text="@{note.noteTitle}"
-                android:layout_marginStart="4dp"
-                android:maxLines="1"
-                android:ellipsize="end"
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:textColor="@color/design_default_color_secondary"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{note.noteTitle}"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/note_image"
-                tools:text="ervirbvoireubiurbvirv"/>
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="ervirbvoireubiurbvirv" />
 
             <TextView
                 android:id="@+id/note_description"
-                android:text="@{note.noteText}"
-                android:layout_marginStart="4dp"
-                android:maxLines="2"
-                android:ellipsize="end"
+                style="@style/TextAppearance.AppCompat.Body2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{note.noteText}"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/note_title"
                 app:layout_constraintStart_toEndOf="@+id/note_image"
-                tools:text="vwvuvuwrnvrwoivnrivurvoiruvbrvioubrvoirwbvowirjbvwrjvwrlvkjrwv"
-                />
+                app:layout_constraintTop_toBottomOf="@+id/note_title"
+                tools:text="vwvuvuwrnvrwoivnrivurvoiruvbrvioubrvoirwbvowirjbvwrjvwrlvkjrwv" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
