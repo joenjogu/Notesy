@@ -5,7 +5,9 @@ import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
+import com.google.android.material.snackbar.Snackbar
 import com.joenjogu.notesy.R
 import com.joenjogu.notesy.databinding.FragmentNoteDetailBinding
 import com.joenjogu.notesy.models.Note
@@ -35,7 +37,19 @@ class NoteDetailFragment : Fragment() {
             if (checkEditTextsNotEmpty()) {
                 val note = Note(noteTitle = noteTitle, noteText = noteText)
                 viewModel.insertNote(note)
+                Snackbar.make(
+                        binding.noteDetailFab,
+                        getString(R.string.add_note_successful),
+                        Snackbar.LENGTH_LONG
+                )
+                val direction = NoteDetailFragmentDirections.actionNoteDetailFragmentToHomeFragment()
+                it.rootView.findNavController().navigate(direction)
             }
+        }
+
+        binding.NoteDetailToolbar.setNavigationOnClickListener {
+            val direction = NoteDetailFragmentDirections.actionNoteDetailFragmentToHomeFragment()
+            it.findNavController().navigate(direction)
         }
 
         return binding.root

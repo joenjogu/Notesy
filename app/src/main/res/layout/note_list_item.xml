@@ -14,8 +14,9 @@
     </data>
 
     <androidx.cardview.widget.CardView
+        android:onClick="@{clickListener}"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="100dp"
         app:cardCornerRadius="10dp"
         android:layout_margin="8dp">
 
@@ -30,15 +31,14 @@
                 android:padding="@dimen/fab_margin"
                 android:layout_height="match_parent"
                 android:scaleType="centerInside"
-                android:src="@drawable/ic_launcher_foreground"
+                android:src="@drawable/note_icon"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/note_icon" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/note_title"
-                android:text="@{note.noteText}"
+                android:text="@{note.noteTitle}"
                 android:layout_marginStart="4dp"
                 android:maxLines="1"
                 android:ellipsize="end"

@@ -21,6 +21,9 @@
             android:name="note_id"
             app:argType="integer"
             android:defaultValue="0"/>
+        <action
+            android:id="@+id/action_noteDetailFragment_to_homeFragment"
+            app:popUpTo="@id/homeFragment" />
 
     </fragment>
 </navigation>

@@ -1,6 +1,7 @@
 package com.joenjogu.notesy.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -26,8 +27,11 @@ class HomeFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
 
         val adapter = NoteListAdapter()
-        binding.recyclerviewLayout.adapter = adapter
+//        binding.recyclerviewLayout.adapter = adapter
+        binding.recyclerviewLayout.noteListRecyclerview.adapter = adapter
+
         viewModel.notes.observe(viewLifecycleOwner) {
+            Log.d("HomeFragment", "onCreateView: $it")
             adapter.submitList(it)
         }
 

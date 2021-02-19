@@ -1,4 +1,4 @@
-package com.joenjogu.notesy
+package com.joenjogu.notesy.adapters
 
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
