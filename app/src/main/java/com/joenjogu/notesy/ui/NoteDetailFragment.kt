@@ -43,7 +43,7 @@ class NoteDetailFragment : Fragment() {
                         Snackbar.LENGTH_LONG
                 )
                 val direction = NoteDetailFragmentDirections.actionNoteDetailFragmentToHomeFragment()
-                it.rootView.findNavController().navigate(direction)
+                it.findNavController().navigate(direction)
             }
         }
 

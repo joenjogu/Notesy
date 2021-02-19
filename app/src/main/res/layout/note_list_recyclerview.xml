@@ -16,7 +16,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/note_list_recyclerview"
-            setAdapter="@{adapter}"
+
             android:padding="5dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
