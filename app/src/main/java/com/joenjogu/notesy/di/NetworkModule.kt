@@ -11,7 +11,7 @@ import java.net.URL
 val networkModule = module {
 
     single { provideOkHttpClient() }
-    single { provideRetrofit(client = get(), url = "api.openweathermap.org/data/2.5/forecast/daily") }
+    single { provideRetrofit(client = get(), url = "api.openweathermap.org/data/2.5/forecast/") }
     single { provideNoteService(retrofit = get()) }
 }
 

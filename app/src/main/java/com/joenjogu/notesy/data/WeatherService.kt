@@ -5,7 +5,7 @@ import retrofit2.http.Query
 
 interface WeatherService {
 
-    @GET
+    @GET("daily/")
     suspend fun getThreeDayForecast(
             @Query("cityID") cityId: String,
             @Query("cnt") dayCount: Int,
