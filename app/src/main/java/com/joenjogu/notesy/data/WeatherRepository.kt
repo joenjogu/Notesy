@@ -18,6 +18,8 @@ class WeatherRepository(private val weatherService: WeatherService, private val 
                     NAIROBI_CITY_LONG,
                     "current,hourly,minutely",
                     API_KEY)
+
+
             dao.insertWeather(weatherForecast)
         }
         catch (exception : IOException){
