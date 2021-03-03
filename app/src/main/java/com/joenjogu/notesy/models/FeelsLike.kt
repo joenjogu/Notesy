@@ -1,4 +1,4 @@
-package com.joenjogu.notesy
+package com.joenjogu.notesy.models
 
 data class FeelsLike(
     val day: Double,

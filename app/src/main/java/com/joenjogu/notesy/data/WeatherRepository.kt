@@ -3,7 +3,8 @@ package com.joenjogu.notesy.data
 import android.accounts.NetworkErrorException
 import android.util.Log
 import com.joenjogu.notesy.API_KEY
-import com.joenjogu.notesy.NAIROBI_CITY_ID
+import com.joenjogu.notesy.NAIROBI_CITY_LAT
+import com.joenjogu.notesy.NAIROBI_CITY_LONG
 import java.io.IOException
 
 class WeatherRepository(private val weatherService: WeatherService, private val dao: WeatherDao) {
@@ -12,7 +13,11 @@ class WeatherRepository(private val weatherService: WeatherService, private val 
 
     suspend fun getForecast() {
         try {
-            val weatherForecast = weatherService.getThreeDayForecast(NAIROBI_CITY_ID, 3, API_KEY)
+            val weatherForecast = weatherService.getThreeDayForecast(
+                    NAIROBI_CITY_LAT,
+                    NAIROBI_CITY_LONG,
+                    "current,hourly,minutely",
+                    API_KEY)
             dao.insertWeather(weatherForecast)
         }
         catch (exception : IOException){
