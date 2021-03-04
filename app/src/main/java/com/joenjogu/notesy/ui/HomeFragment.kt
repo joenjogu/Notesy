@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
+import com.google.android.material.tabs.TabLayoutMediator
 import com.joenjogu.notesy.adapters.NoteListAdapter
 import com.joenjogu.notesy.R
 import com.joenjogu.notesy.databinding.FragmentHomeBinding
@@ -25,6 +26,14 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
+
+        val viewpager = binding.viewpager
+        val tabLayout = binding.tabLayout
+
+        TabLayoutMediator(tabLayout, viewpager) { tab, position ->
+
+
+        }.attach()
 
         val adapter = NoteListAdapter()
 //        binding.recyclerviewLayout.adapter = adapter

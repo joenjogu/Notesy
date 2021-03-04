@@ -27,9 +27,19 @@
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
                 app:toolbarId="@id/home_toolbar">
 
-                <ImageView
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/viewpager"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="match_parent"
+                    app:layout_collapseMode="parallax"
+                    android:fitsSystemWindows="true">
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tab_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:tabIndicatorGravity="bottom"/>
+                </androidx.viewpager2.widget.ViewPager2>
 
                 <com.google.android.material.appbar.MaterialToolbar
                     android:id="@+id/home_toolbar"
