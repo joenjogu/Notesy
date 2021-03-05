@@ -1,6 +1,7 @@
 package com.joenjogu.notesy.di
 
 import com.joenjogu.notesy.viewmodels.HomeFragmentViewModel
+import com.joenjogu.notesy.viewmodels.BannerViewModel
 import com.joenjogu.notesy.viewmodels.NoteDetailViewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -15,6 +16,12 @@ val viewModelModule = module {
     viewModel {
         NoteDetailViewModel(
             repository = get()
+        )
+    }
+
+    viewModel {
+        BannerViewModel(
+                repository = get()
         )
     }
 }
