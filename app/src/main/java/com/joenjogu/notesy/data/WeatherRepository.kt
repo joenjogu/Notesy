@@ -9,18 +9,18 @@ import java.io.IOException
 
 class WeatherRepository(private val weatherService: WeatherService, private val dao: WeatherDao) {
 
-    val forecast = dao.getWeather()
+    val forecast = dao.getForecast()
 
-    suspend fun getForecast() {
+    suspend fun getWeatherResponse() {
         try {
-            val weatherForecast = weatherService.getThreeDayForecast(
+            val weatherResponse = weatherService.getDailyForecast(
                     NAIROBI_CITY_LAT,
                     NAIROBI_CITY_LONG,
                     "current,hourly,minutely",
                     API_KEY)
 
-
-            dao.insertWeather(weatherForecast)
+            //TODO weather response to forecast using utils domain class
+            dao.insertWeather(weatherResponse)
         }
         catch (exception : IOException){
             Log.d(TAG, "getForecast: $exception")

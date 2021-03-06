@@ -28,7 +28,7 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
 
-        val viewpagerAdapter = ViewPagerAdapter()
+        val viewpagerAdapter = ViewPagerAdapter(requireContext())
         val viewpager = binding.viewpager
         val tabLayout = binding.tabLayout
 

@@ -7,7 +7,7 @@ import retrofit2.http.Query
 interface WeatherService {
 
     @GET("onecall")
-    suspend fun getThreeDayForecast(
+    suspend fun getDailyForecast(
             @Query("lat") latitude: Double,
             @Query("lon") longitude: Double,
             @Query("exclude") exclude: String,
