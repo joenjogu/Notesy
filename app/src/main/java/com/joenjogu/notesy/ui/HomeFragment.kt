@@ -32,6 +32,8 @@ class HomeFragment : Fragment() {
         val viewpager = binding.viewpager
         val tabLayout = binding.tabLayout
 
+        viewpager.adapter
+
         TabLayoutMediator(tabLayout, viewpager) { tab, position ->
 
 
@@ -44,6 +46,10 @@ class HomeFragment : Fragment() {
         viewModel.notes.observe(viewLifecycleOwner) {
             Log.d("HomeFragment", "onCreateView: $it")
             adapter.submitList(it)
+        }
+
+        viewModel.forecast.observe(viewLifecycleOwner) {
+
         }
 
         binding.fabAddNote.setOnClickListener {

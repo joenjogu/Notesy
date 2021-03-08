@@ -9,7 +9,8 @@ import org.koin.dsl.module
 val viewModelModule = module {
     viewModel {
             HomeFragmentViewModel(
-                repository = get()
+                    repository = get(),
+                    weatherRepository = get()
             )
         }
 
