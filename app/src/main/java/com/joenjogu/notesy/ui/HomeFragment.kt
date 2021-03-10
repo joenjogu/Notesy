@@ -49,6 +49,7 @@ class HomeFragment : Fragment() {
         }
 
         viewModel.forecast.observe(viewLifecycleOwner) {
+            viewpagerAdapter.submitList(it)
 
         }
 
