@@ -13,7 +13,8 @@ fun WeatherResponse.toDomain(): Forecast {
     return Forecast(
             1416165654,
             25.6,
-            "Clear"
+            "Clear",
+            "icon url"
     )
 }
 
