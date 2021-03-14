@@ -6,30 +6,22 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.Lifecycle
 import androidx.viewpager.widget.PagerAdapter
+import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.joenjogu.notesy.R
 import com.joenjogu.notesy.databinding.ItemBannerBinding
 
-class ViewPagerAdapter(private val context: Context) : PagerAdapter() {
+class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) : FragmentStateAdapter(fragmentManager, lifecycle) {
     private lateinit var binding: ItemBannerBinding
-    override fun getCount(): Int {
-        return 3
+    override fun getItemCount(): Int {
+        TODO("Not yet implemented")
     }
 
-    override fun isViewFromObject(view: View, `object`: Any): Boolean {
-        return view == `object` as ConstraintLayout
+    override fun createFragment(position: Int): Fragment {
+        TODO("Not yet implemented")
     }
 
-    override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        binding = DataBindingUtil.inflate(inflater, R.layout.item_banner, container, false)
-
-        //handle image and text display preferably using data binding
-
-        return super.instantiateItem(container, position)
-    }
-
-    override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
-        super.destroyItem(container, position, `object`)
-    }
 }
