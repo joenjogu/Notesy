@@ -13,15 +13,24 @@ import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.joenjogu.notesy.R
 import com.joenjogu.notesy.databinding.ItemBannerBinding
+import com.joenjogu.notesy.models.Forecast
 
-class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) : FragmentStateAdapter(fragmentManager, lifecycle) {
+class ViewPagerAdapter(
+        fragmentManager: FragmentManager,
+        lifecycle: Lifecycle,
+        private val forecastList: List<Forecast>
+        ) : FragmentStateAdapter(fragmentManager, lifecycle) {
+
     private lateinit var binding: ItemBannerBinding
+
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return forecastList.size
     }
 
     override fun createFragment(position: Int): Fragment {
-        TODO("Not yet implemented")
+        val forecast = forecastList[position]
+        binding.forecast = forecast
+
     }
 
 }

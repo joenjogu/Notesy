@@ -46,7 +46,7 @@ class HomeFragment : Fragment() {
         }
 
         viewModel.forecast.observe(viewLifecycleOwner) { forecastList ->
-            val viewpagerAdapter = ViewPagerAdapter(childFragmentManager, lifecycle)
+            val viewpagerAdapter = ViewPagerAdapter(childFragmentManager, lifecycle, forecastList)
             viewpager.adapter = viewpagerAdapter
 
         }
