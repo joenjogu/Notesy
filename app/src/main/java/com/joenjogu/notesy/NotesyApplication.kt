@@ -1,10 +1,7 @@
 package com.joenjogu.notesy
 
 import android.app.Application
-import com.joenjogu.notesy.di.databaseModule
-import com.joenjogu.notesy.di.networkModule
-import com.joenjogu.notesy.di.repositoryModule
-import com.joenjogu.notesy.di.viewModelModule
+import com.joenjogu.notesy.di.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -20,6 +17,7 @@ class NotesyApplication : Application() {
                     databaseModule,
                     viewModelModule,
                     repositoryModule,
+                    weatherRepositoryModule
             )
         }
     }

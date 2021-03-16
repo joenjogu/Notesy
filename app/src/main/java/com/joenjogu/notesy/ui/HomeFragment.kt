@@ -31,13 +31,12 @@ class HomeFragment : Fragment() {
         val viewpager = binding.viewpager
         val tabLayout = binding.tabLayout
 
-        TabLayoutMediator(tabLayout, viewpager) { tab, position ->
-
-
-        }.attach()
+//        TabLayoutMediator(tabLayout, viewpager) { tab, position ->
+//
+//
+//        }.attach()
 
         val adapter = NoteListAdapter()
-//        binding.recyclerviewLayout.adapter = adapter
         binding.recyclerviewLayout.noteListRecyclerview.adapter = adapter
 
         viewModel.notes.observe(viewLifecycleOwner) {
@@ -49,6 +48,10 @@ class HomeFragment : Fragment() {
             val viewpagerAdapter = ViewPagerAdapter(childFragmentManager, lifecycle, forecastList)
             viewpager.adapter = viewpagerAdapter
 
+            TabLayoutMediator(tabLayout, viewpager) { tab, position ->
+
+
+            }.attach()
         }
 
         binding.fabAddNote.setOnClickListener {

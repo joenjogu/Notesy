@@ -12,4 +12,5 @@ import kotlinx.coroutines.internal.synchronized
 abstract class NoteDatabase : RoomDatabase(){
 
     abstract val noteDao: NoteDao
+    abstract val weatherDao: WeatherDao
 }

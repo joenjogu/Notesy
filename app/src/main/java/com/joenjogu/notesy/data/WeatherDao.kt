@@ -16,10 +16,11 @@ interface WeatherDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertForecast(forecast: List<Forecast>)
 
-    @Query("")
+    // TODO remove dummy SQL
+    @Query("SELECT * FROM Note")
     fun getWeather(): WeatherResponse
 
-    @Query("")
+    @Query("SELECT * FROM Note")
     fun getForecast(): LiveData<List<Forecast>>
 
 }

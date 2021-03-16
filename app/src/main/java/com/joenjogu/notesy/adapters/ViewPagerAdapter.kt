@@ -14,6 +14,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.joenjogu.notesy.R
 import com.joenjogu.notesy.databinding.ItemBannerBinding
 import com.joenjogu.notesy.models.Forecast
+import com.joenjogu.notesy.ui.ItemBannerFragment
 
 class ViewPagerAdapter(
         fragmentManager: FragmentManager,
@@ -21,16 +22,12 @@ class ViewPagerAdapter(
         private val forecastList: List<Forecast>
         ) : FragmentStateAdapter(fragmentManager, lifecycle) {
 
-    private lateinit var binding: ItemBannerBinding
-
     override fun getItemCount(): Int {
         return forecastList.size
     }
 
     override fun createFragment(position: Int): Fragment {
         val forecast = forecastList[position]
-        binding.forecast = forecast
-
+        return ItemBannerFragment(forecast)
     }
-
 }
