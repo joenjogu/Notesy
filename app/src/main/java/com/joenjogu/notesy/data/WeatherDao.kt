@@ -17,10 +17,10 @@ interface WeatherDao {
     fun insertForecast(forecast: List<Forecast>)
 
     // TODO remove dummy SQL
-    @Query("SELECT * FROM Note")
+    @Query("SELECT * FROM WeatherResponse")
     fun getWeather(): WeatherResponse
 
-    @Query("SELECT * FROM Note")
+    @Query("SELECT * FROM Forecast")
     fun getForecast(): LiveData<List<Forecast>>
 
 }

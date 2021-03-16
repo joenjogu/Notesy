@@ -5,6 +5,7 @@ import android.util.Log
 import com.joenjogu.notesy.API_KEY
 import com.joenjogu.notesy.NAIROBI_CITY_LAT
 import com.joenjogu.notesy.NAIROBI_CITY_LONG
+import com.joenjogu.notesy.models.Forecast
 import java.io.IOException
 
 class WeatherRepository(private val weatherService: WeatherService, private val dao: WeatherDao) {
@@ -21,6 +22,19 @@ class WeatherRepository(private val weatherService: WeatherService, private val 
 
             //TODO weather response to forecast using utils domain class
             dao.insertWeather(weatherResponse)
+
+            val daily = weatherResponse.daily
+            val forecastList = mutableListOf<Forecast>()
+            daily.forEachIndexed { index, day ->
+                val forecastResponse = Forecast(
+                        day.dt,
+                        day.temp.day,
+                        day.weather[index].description,
+                        day.weather[index].icon
+                )
+                forecastList.add(forecastResponse)
+            }
+            dao.insertForecast(forecastList)
         }
         catch (exception : IOException){
             Log.d(TAG, "getForecast: $exception")

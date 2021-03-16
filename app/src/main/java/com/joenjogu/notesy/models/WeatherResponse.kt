@@ -1,8 +1,9 @@
 package com.joenjogu.notesy.models
 
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-@Entity
+@Entity(primaryKeys = ["lat", "lon"])
 data class WeatherResponse(
         val daily: List<Daily>,
         val lat: Double,
