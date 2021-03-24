@@ -10,15 +10,9 @@ import com.joenjogu.notesy.models.WeatherResponse
 
 @Dao
 interface WeatherDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertWeather(weatherResponse: WeatherResponse)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertForecast(forecast: List<Forecast>)
-
-    // TODO remove dummy SQL
-    @Query("SELECT * FROM WeatherResponse")
-    fun getWeather(): WeatherResponse
 
     @Query("SELECT * FROM Forecast")
     fun getForecast(): LiveData<List<Forecast>>

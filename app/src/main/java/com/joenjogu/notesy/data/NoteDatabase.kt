@@ -9,7 +9,7 @@ import com.joenjogu.notesy.models.*
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.internal.synchronized
 
-@Database(entities = [Note::class, WeatherResponse::class, Forecast::class], version = 2, exportSchema = false)
+@Database(entities = [Note::class, Daily::class, Forecast::class], version = 2, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class NoteDatabase : RoomDatabase(){
 

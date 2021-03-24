@@ -1,10 +1,15 @@
 package com.joenjogu.notesy.models
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity
 data class Daily(
         val clouds: Int,
         val dew_point: Double,
+        @PrimaryKey
         val dt: Int,
-        val feels_like: FeelsLike,
+//        val feels_like: FeelsLike,
         val humidity: Int,
         val pop: Double,
         val pressure: Int,

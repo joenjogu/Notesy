@@ -20,9 +20,6 @@ class WeatherRepository(private val weatherService: WeatherService, private val 
                     "current,hourly,minutely",
                     API_KEY)
 
-            //TODO weather response to forecast using utils domain class
-            dao.insertWeather(weatherResponse)
-
             val daily = weatherResponse.daily
             val forecastList = mutableListOf<Forecast>()
             daily.forEachIndexed { index, day ->
