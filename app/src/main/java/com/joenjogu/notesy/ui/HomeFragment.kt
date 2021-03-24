@@ -45,6 +45,7 @@ class HomeFragment : Fragment() {
         }
 
         viewModel.forecast.observe(viewLifecycleOwner) { forecastList ->
+            Log.d("Home", "onCreateView: $forecastList")
             val viewpagerAdapter = ViewPagerAdapter(childFragmentManager, lifecycle, forecastList)
             viewpager.adapter = viewpagerAdapter
 
