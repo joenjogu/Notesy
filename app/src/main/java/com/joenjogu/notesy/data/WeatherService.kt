@@ -11,6 +11,6 @@ interface WeatherService {
             @Query("lat") latitude: Double,
             @Query("lon") longitude: Double,
             @Query("exclude") exclude: String,
-            @Query("API key") apiKey: String
+            @Query("appid") apiKey: String
     ): WeatherResponse
 }

@@ -19,18 +19,21 @@ class WeatherRepository(private val weatherService: WeatherService, private val 
                     NAIROBI_CITY_LONG,
                     "current,hourly,minutely",
                     API_KEY)
+            Log.d(TAG, "getWeatherResponse: $weatherResponse")
 
             val daily = weatherResponse.daily
+            Log.d(TAG, "getWeatherResponse: $daily")
             val forecastList = mutableListOf<Forecast>()
             daily.forEachIndexed { index, day ->
                 val forecastResponse = Forecast(
                         day.dt,
                         day.temp.day,
-                        day.weather[index].description,
-                        day.weather[index].icon
+                        day.weather[0].description,
+                        day.weather[0].icon
                 )
                 forecastList.add(forecastResponse)
             }
+            Log.d(TAG, "getWeatherResponse: $forecastList")
             dao.insertForecast(forecastList)
         }
         catch (exception : IOException){
