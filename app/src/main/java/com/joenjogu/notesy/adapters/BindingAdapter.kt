@@ -3,6 +3,7 @@ package com.joenjogu.notesy.adapters
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
+import java.util.*
 
 @BindingAdapter("setAdapter")
 fun RecyclerView.bindRecyclerViewAdapter(adapter: RecyclerView.Adapter<*>) {
@@ -15,7 +16,8 @@ fun RecyclerView.bindRecyclerViewAdapter(adapter: RecyclerView.Adapter<*>) {
 @BindingAdapter("setDate")
 fun TextView.setDate(int: Int) {
     // TODO convert epoch to date
-    this.text = int.toString()
+    val date = Date(int.toLong())
+    this.text = date.toString()
 }
 
 @BindingAdapter("setTemp")

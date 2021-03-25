@@ -18,6 +18,7 @@ class WeatherRepository(private val weatherService: WeatherService, private val 
                     NAIROBI_CITY_LAT,
                     NAIROBI_CITY_LONG,
                     "current,hourly,minutely",
+                    "metric",
                     API_KEY)
             Log.d(TAG, "getWeatherResponse: $weatherResponse")
 
