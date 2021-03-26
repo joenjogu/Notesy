@@ -1,8 +1,11 @@
 package com.joenjogu.notesy.adapters
 
+import android.annotation.SuppressLint
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import java.util.*
 
 @BindingAdapter("setAdapter")
@@ -15,12 +18,17 @@ fun RecyclerView.bindRecyclerViewAdapter(adapter: RecyclerView.Adapter<*>) {
 
 @BindingAdapter("setDate")
 fun TextView.setDate(int: Int) {
-    // TODO convert epoch to date
-    val date = Date(int.toLong())
-    this.text = date.toString()
+    val date = Date(int.toLong() * 1000).toString()
+    this.text = date.substring(4, 9)
+}
+
+@BindingAdapter("setDay")
+fun TextView.setDay(int: Int) {
+    val date = Date(int.toLong() * 1000)
+    this.text = date.toString().take(3)
 }
 
 @BindingAdapter("setTemp")
 fun TextView.setTemperature(temp: Double) {
-    this.text = temp.toString()
+    this.text = "$temp°C"
 }

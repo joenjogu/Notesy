@@ -8,4 +8,5 @@
     <string name="delete">Delete</string>
     <string name="required_field">Required Field!</string>
     <string name="add_note_successful">Note Added Successfully</string>
+    <string name="temperature">TEMPERATURE</string>
 </resources>
