@@ -12,7 +12,7 @@ import com.joenjogu.notesy.models.WeatherResponse
 interface WeatherDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertForecast(forecast: List<Forecast>)
+    suspend fun insertForecast(forecast: List<Forecast>): List<Long>
 
     @Query("SELECT * FROM Forecast")
     fun getForecast(): LiveData<List<Forecast>>

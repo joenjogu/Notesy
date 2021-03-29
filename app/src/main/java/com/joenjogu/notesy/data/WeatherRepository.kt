@@ -12,7 +12,7 @@ class WeatherRepository(private val weatherService: WeatherService, private val 
 
     val forecast = dao.getForecast()
 
-    suspend fun getWeatherResponse() {
+    suspend fun getWeatherResponse(): List<Long> {
         try {
             val weatherResponse = weatherService.getDailyForecast(
                     NAIROBI_CITY_LAT,
@@ -35,7 +35,9 @@ class WeatherRepository(private val weatherService: WeatherService, private val 
                 forecastList.add(forecastResponse)
             }
             Log.d(TAG, "getWeatherResponse: $forecastList")
-            dao.insertForecast(forecastList)
+            val inserted = dao.insertForecast(forecastList)
+            Log.d(TAG, "getWeatherResponse: $inserted")
+            return inserted
         }
         catch (exception : IOException){
             Log.d(TAG, "getForecast: $exception")
