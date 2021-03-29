@@ -1,5 +1,6 @@
 package com.joenjogu.notesy.viewmodels
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.joenjogu.notesy.data.Repository
@@ -18,6 +19,7 @@ class HomeFragmentViewModel(repository: Repository, val weatherRepository: Weath
     private fun getWeatherResponse() {
         viewModelScope.launch {
             weatherRepository.getWeatherResponse()
+            Log.d("ViewModel", "getWeatherResponse: Fetching Weather Response")
         }
     }
 }

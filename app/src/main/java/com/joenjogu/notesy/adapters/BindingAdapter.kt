@@ -25,7 +25,7 @@ fun TextView.setDate(int: Int) {
 @BindingAdapter("setDay")
 fun TextView.setDay(int: Int) {
     val date = Date(int.toLong() * 1000)
-    this.text = date.toString().take(3)
+    this.text = date.toString().take(4)
 }
 
 @BindingAdapter("setTemp")

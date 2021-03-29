@@ -28,7 +28,7 @@ class ItemBannerFragment(val forecast: Forecast) : Fragment() {
     }
 
     private fun setImage(iconCode: String) {
-        val iconUrl = "http://openweathermap.org/img/wn/$iconCode@2x.png"
+        val iconUrl = "https://openweathermap.org/img/wn/$iconCode@2x.png"
         Glide.with(this.requireActivity()).load(iconUrl).into(binding.itemImage)
     }
 }
