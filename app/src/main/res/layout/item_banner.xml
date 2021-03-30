@@ -53,12 +53,25 @@
             app:setTemp="@{forecast.temperature}"
             android:textSize="32sp"
             android:textColor="@android:color/white"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="16dp"
             android:layout_marginStart="@dimen/textview_margin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/item_weather"
             tools:text="23" />
+
+        <TextView
+            android:id="@+id/item_weather"
+            android:text="@{forecast.weather}"
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="32dp"
+            android:layout_marginStart="@dimen/textview_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="28th March" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
