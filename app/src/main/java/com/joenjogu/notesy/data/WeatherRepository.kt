@@ -42,11 +42,9 @@ class WeatherRepository(private val weatherService: WeatherService, private val 
         }
         catch (exception : IOException){
             Log.d(TAG, "getForecast: $exception")
-            throw exception
         }
         catch (exception: NetworkErrorException) {
             Log.d(TAG, "getForecast: $exception")
-            throw exception
         }
     }
 
