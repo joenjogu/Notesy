@@ -1,6 +1,7 @@
 package com.joenjogu.notesy.adapters
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
@@ -19,7 +20,8 @@ fun RecyclerView.bindRecyclerViewAdapter(adapter: RecyclerView.Adapter<*>) {
 @BindingAdapter("setDate")
 fun TextView.setDate(int: Int) {
     val date = Date(int.toLong() * 1000).toString()
-    this.text = date.substring(4, 9)
+    Log.d("BindingAdapter", "setDate: $date")
+    this.text = date.substring(4, 10)
 }
 
 @BindingAdapter("setDay")
