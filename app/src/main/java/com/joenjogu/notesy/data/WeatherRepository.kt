@@ -25,7 +25,7 @@ class WeatherRepository(private val weatherService: WeatherService, private val 
             val daily = weatherResponse.daily
             Log.d(TAG, "getWeatherResponse: $daily")
             val forecastList = mutableListOf<Forecast>()
-            daily.forEachIndexed { index, day ->
+            daily.forEach { day ->
                 val forecastResponse = Forecast(
                         day.dt,
                         day.temp.day,

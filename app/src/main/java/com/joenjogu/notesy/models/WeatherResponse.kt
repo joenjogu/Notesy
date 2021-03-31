@@ -3,9 +3,7 @@ package com.joenjogu.notesy.models
 import androidx.room.Ignore
 import com.google.gson.annotations.SerializedName
 
-//@Entity(primaryKeys = ["lat", "lon"])
 data class WeatherResponse(
-        // TODO add serialized names from api to remove bug
         @SerializedName("daily")
         @Ignore
         val daily: List<Daily>,

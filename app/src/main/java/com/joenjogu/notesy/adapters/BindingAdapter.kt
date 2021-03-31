@@ -1,21 +1,9 @@
 package com.joenjogu.notesy.adapters
 
-import android.annotation.SuppressLint
 import android.util.Log
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import java.util.*
-
-@BindingAdapter("setAdapter")
-fun RecyclerView.bindRecyclerViewAdapter(adapter: RecyclerView.Adapter<*>) {
-    this.run {
-        setHasFixedSize(true)
-        this.adapter = adapter
-    }
-}
 
 @BindingAdapter("setDate")
 fun TextView.setDate(int: Int) {

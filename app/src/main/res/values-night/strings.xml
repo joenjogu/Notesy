@@ -5,4 +5,5 @@
     <string name="delete">Delete</string>
     <string name="required_field">Required Field!</string>
     <string name="add_note_successful">Note Added Successfully</string>
+    <string name="celsius_symbol">%1s°C</string>
 </resources>
