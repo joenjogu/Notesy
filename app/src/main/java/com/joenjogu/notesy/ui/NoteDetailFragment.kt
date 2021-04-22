@@ -9,7 +9,9 @@ import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
 import com.joenjogu.notesy.R
 import com.joenjogu.notesy.databinding.FragmentNoteDetailBinding
+import com.joenjogu.notesy.hideKeyboard
 import com.joenjogu.notesy.models.Note
+import com.joenjogu.notesy.showKeyboard
 import com.joenjogu.notesy.viewmodels.NoteDetailViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -30,6 +32,8 @@ class NoteDetailFragment : Fragment() {
         viewModel.getNote(navArgs.noteId).observe(viewLifecycleOwner){
             binding.note = it
         }
+        binding.noteDetailTitle.requestFocus()
+        binding.noteDetailTitle.showKeyboard(requireContext())
         binding.noteDetailFab.setOnClickListener {
             val noteTitle = binding.noteDetailTitle.text.trim().toString()
             val noteText = binding.noteDetailText.text.trim().toString()
@@ -41,6 +45,7 @@ class NoteDetailFragment : Fragment() {
                         getString(R.string.add_note_successful),
                         Snackbar.LENGTH_LONG
                 )
+                it.hideKeyboard(requireContext())
                 val direction = NoteDetailFragmentDirections.actionNoteDetailFragmentToHomeFragment()
                 it.findNavController().navigate(direction)
             }

@@ -15,6 +15,7 @@ import com.joenjogu.notesy.adapters.ViewPagerAdapter
 import com.joenjogu.notesy.databinding.FragmentHomeBinding
 import com.joenjogu.notesy.viewmodels.HomeFragmentViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
+import java.util.*
 
 class HomeFragment : Fragment() {
     private lateinit var binding : FragmentHomeBinding
@@ -47,6 +48,10 @@ class HomeFragment : Fragment() {
 
 
             }.attach()
+            val currentDateTime = Calendar.getInstance().timeInMillis
+            forecastList.forEachIndexed { index, forecast ->
+                if (forecast.date.toLong() == currentDateTime) viewpager.currentItem = index
+            }
         }
 
         binding.fabAddNote.setOnClickListener {

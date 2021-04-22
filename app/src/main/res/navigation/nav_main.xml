@@ -23,6 +23,7 @@
             android:defaultValue="0"/>
         <action
             android:id="@+id/action_noteDetailFragment_to_homeFragment"
+            app:popExitAnim="@anim/nav_default_exit_anim"
             app:popUpTo="@id/homeFragment" />
 
     </fragment>
