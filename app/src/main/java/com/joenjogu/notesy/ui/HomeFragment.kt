@@ -3,11 +3,13 @@ package com.joenjogu.notesy.ui
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayoutMediator
 import com.joenjogu.notesy.R
 import com.joenjogu.notesy.adapters.NoteListAdapter
@@ -27,6 +29,7 @@ class HomeFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
+        setHasOptionsMenu(true)
 
         val viewpager = binding.viewpager
         val tabLayout = binding.tabLayout

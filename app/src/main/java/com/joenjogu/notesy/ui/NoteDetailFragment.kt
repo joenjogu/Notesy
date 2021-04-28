@@ -20,6 +20,11 @@ class NoteDetailFragment : Fragment() {
     private val navArgs: NoteDetailFragmentArgs by navArgs()
     private val viewModel: NoteDetailViewModel by viewModel()
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        setHasOptionsMenu(true)
+        super.onCreate(savedInstanceState)
+    }
+
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -41,7 +46,7 @@ class NoteDetailFragment : Fragment() {
                 val note = Note(noteTitle = noteTitle, noteText = noteText)
                 viewModel.insertNote(note)
                 Snackbar.make(
-                        binding.noteDetailFab,
+                        binding.root,
                         getString(R.string.add_note_successful),
                         Snackbar.LENGTH_LONG
                 )
