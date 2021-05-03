@@ -18,6 +18,7 @@ import com.joenjogu.notesy.databinding.FragmentHomeBinding
 import com.joenjogu.notesy.viewmodels.HomeFragmentViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 import java.util.*
+import kotlin.math.truncate
 
 class HomeFragment : Fragment() {
     private lateinit var binding : FragmentHomeBinding
@@ -52,9 +53,9 @@ class HomeFragment : Fragment() {
 
             }.attach()
             val currentDateTime = Calendar.getInstance().timeInMillis
-            forecastList.forEachIndexed { index, forecast ->
-                if (forecast.date.toLong() == currentDateTime) viewpager.currentItem = index
-            }
+            val currentEpoch = truncate((currentDateTime/1000).toDouble())
+            val firstCurrentForecast = forecastList.find { forecast -> forecast.date.toDouble() >= currentEpoch }
+            viewpager.currentItem = forecastList.indexOf(firstCurrentForecast) - 1
         }
 
         binding.fabAddNote.setOnClickListener {
