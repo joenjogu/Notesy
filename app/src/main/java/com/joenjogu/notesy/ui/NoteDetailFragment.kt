@@ -2,16 +2,15 @@ package com.joenjogu.notesy.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
+import com.google.android.material.appbar.MaterialToolbar
 import com.joenjogu.notesy.R
 import com.joenjogu.notesy.databinding.FragmentNoteDetailBinding
 import com.joenjogu.notesy.hideKeyboard
@@ -35,8 +34,12 @@ class NoteDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_note_detail, container, false)
-        setHasOptionsMenu(true)
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.fragment_note_detail,
+            container,
+            false
+        )
 
         viewModel.getNote(navArgs.noteId).observe(viewLifecycleOwner) {
             binding.note = it
@@ -56,26 +59,13 @@ class NoteDetailFragment : Fragment() {
             }
         }
 
-        binding.NoteDetailToolbar.setNavigationOnClickListener {
-            val direction = NoteDetailFragmentDirections.actionNoteDetailFragmentToHomeFragment()
-            it.findNavController().navigate(direction)
+        initToolbar(binding.noteDetailToolbar)
+
+        binding.noteDetailToolbar.setNavigationOnClickListener {
+            navigateUp(it)
         }
 
         return binding.root
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu_note_detail, menu)
-        super.onCreateOptionsMenu(menu, inflater)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return if (item.itemId == R.id.action_delete) {
-            viewModel.deleteNote(navArgs.noteId)
-            true
-        } else {
-            super.onOptionsItemSelected(item)
-        }
     }
 
     private fun checkEditTextsNotEmpty(): Boolean {
@@ -92,5 +82,43 @@ class NoteDetailFragment : Fragment() {
             descriptionText = true
         }
         return titleText and descriptionText
+    }
+
+    private fun initToolbar(toolbar: MaterialToolbar) {
+        toolbar.inflateMenu(R.menu.menu_note_detail)
+        toolbar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.action_delete -> {
+                    deleteNoteWithDialog()
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+
+    private fun deleteNoteWithDialog() {
+        AlertDialog.Builder(requireContext())
+            .setTitle("Delete Note")
+            .setMessage("Are you sure you want to delete this note?")
+            .setPositiveButton("YES"
+            ) { dialog, _ ->
+                viewModel.deleteNote(navArgs.noteId)
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.note_deleted),
+                    Toast.LENGTH_LONG
+                ).show()
+                dialog.dismiss()
+                navigateUp(binding.root)
+            }
+            .setNegativeButton("NO", null)
+            .show()
+
+    }
+
+    private fun navigateUp(view: View) {
+        val direction = NoteDetailFragmentDirections.actionNoteDetailFragmentToHomeFragment()
+        view.findNavController().navigate(direction)
     }
 }

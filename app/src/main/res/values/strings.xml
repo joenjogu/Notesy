@@ -10,4 +10,5 @@
     <string name="add_note_successful">Note Added Successfully</string>
     <string name="temperature">TEMPERATURE</string>
     <string name="celsius_symbol">%1s°C</string>
+    <string name="note_deleted">Note Deleted!</string>
 </resources>

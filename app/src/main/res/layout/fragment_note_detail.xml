@@ -22,11 +22,10 @@
             app:layout_constraintEnd_toEndOf="parent">
 
             <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/Note_detail_toolbar"
+                android:id="@+id/note_detail_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:navigationIcon="@drawable/ic_baseline_arrow_back_ios_24"
-                app:menu="@menu/menu_note_detail"/>
+                app:navigationIcon="@drawable/ic_baseline_arrow_back_ios_24"/>
 
         </com.google.android.material.appbar.AppBarLayout>
 
