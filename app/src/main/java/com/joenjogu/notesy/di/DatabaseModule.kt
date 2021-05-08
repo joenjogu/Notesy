@@ -14,9 +14,9 @@ val databaseModule = module {
 
     single {
         Room.databaseBuilder(
-                androidContext(),
-                NoteDatabase::class.java,
-                "note_db"
+            androidContext(),
+            NoteDatabase::class.java,
+            "note_db"
         ).fallbackToDestructiveMigration().build()
     }
 }

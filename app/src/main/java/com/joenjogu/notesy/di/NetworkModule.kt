@@ -16,19 +16,19 @@ val networkModule = module {
 
 private fun provideOkHttpClient(): OkHttpClient {
     val httpLoggingInterceptor = HttpLoggingInterceptor().apply {
-            level = HttpLoggingInterceptor.Level.BODY
-        }
+        level = HttpLoggingInterceptor.Level.BODY
+    }
     return OkHttpClient.Builder()
-            .addInterceptor(httpLoggingInterceptor)
-            .build()
+        .addInterceptor(httpLoggingInterceptor)
+        .build()
 }
 
 private fun provideRetrofit(client: OkHttpClient, url: String): Retrofit {
     return Retrofit.Builder()
-            .baseUrl(url)
-            .client(client)
-            .addConverterFactory(MoshiConverterFactory.create())
-            .build()
+        .baseUrl(url)
+        .client(client)
+        .addConverterFactory(MoshiConverterFactory.create())
+        .build()
 }
 
 private fun provideNoteService(retrofit: Retrofit): WeatherService {

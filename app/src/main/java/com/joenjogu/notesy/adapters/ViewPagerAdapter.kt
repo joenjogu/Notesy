@@ -8,10 +8,10 @@ import com.joenjogu.notesy.models.Forecast
 import com.joenjogu.notesy.ui.ItemBannerFragment
 
 class ViewPagerAdapter(
-        fragmentManager: FragmentManager,
-        lifecycle: Lifecycle,
-        private val forecastList: List<Forecast>
-        ) : FragmentStateAdapter(fragmentManager, lifecycle) {
+    fragmentManager: FragmentManager,
+    lifecycle: Lifecycle,
+    private val forecastList: List<Forecast>
+) : FragmentStateAdapter(fragmentManager, lifecycle) {
 
     override fun getItemCount(): Int {
         return forecastList.size

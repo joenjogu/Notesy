@@ -8,10 +8,10 @@ interface WeatherService {
 
     @GET("onecall")
     suspend fun getDailyForecast(
-            @Query("lat") latitude: Double,
-            @Query("lon") longitude: Double,
-            @Query("exclude") exclude: String,
-            @Query("units") units: String,
-            @Query("appid") apiKey: String
+        @Query("lat") latitude: Double,
+        @Query("lon") longitude: Double,
+        @Query("exclude") exclude: String,
+        @Query("units") units: String,
+        @Query("appid") apiKey: String
     ): WeatherResponse
 }

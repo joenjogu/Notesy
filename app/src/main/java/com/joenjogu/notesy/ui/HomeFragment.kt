@@ -3,13 +3,11 @@ package com.joenjogu.notesy.ui
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayoutMediator
 import com.joenjogu.notesy.R
 import com.joenjogu.notesy.adapters.NoteListAdapter
@@ -17,15 +15,16 @@ import com.joenjogu.notesy.adapters.ViewPagerAdapter
 import com.joenjogu.notesy.databinding.FragmentHomeBinding
 import com.joenjogu.notesy.viewmodels.HomeFragmentViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
-import java.util.*
+import java.util.Calendar
 import kotlin.math.truncate
 
 class HomeFragment : Fragment() {
-    private lateinit var binding : FragmentHomeBinding
+    private lateinit var binding: FragmentHomeBinding
     private val viewModel: HomeFragmentViewModel by viewModel()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
@@ -49,11 +48,9 @@ class HomeFragment : Fragment() {
             viewpager.adapter = viewpagerAdapter
 
             TabLayoutMediator(tabLayout, viewpager) { _, _ ->
-
-
             }.attach()
             val currentDateTime = Calendar.getInstance().timeInMillis
-            val currentEpoch = truncate((currentDateTime/1000).toDouble())
+            val currentEpoch = truncate((currentDateTime / 1000).toDouble())
             val firstCurrentForecast = forecastList.find { forecast -> forecast.date.toDouble() >= currentEpoch }
             viewpager.currentItem = forecastList.indexOf(firstCurrentForecast) - 1
         }

@@ -11,6 +11,7 @@ class Converters {
     companion object {
         val gson = Gson()
     }
+
     @TypeConverter
     fun tempToString(temp: Temp): String {
         return gson.toJson(temp)

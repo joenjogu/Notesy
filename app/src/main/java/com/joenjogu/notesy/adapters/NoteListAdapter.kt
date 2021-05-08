@@ -8,22 +8,22 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-//import com.joenjogu.notesy.HomeFragmentDirections
+// import com.joenjogu.notesy.HomeFragmentDirections
 import com.joenjogu.notesy.databinding.NoteListItemBinding
 import com.joenjogu.notesy.models.Note
 import com.joenjogu.notesy.ui.HomeFragmentDirections
 
-class NoteListAdapter : ListAdapter<Note, NoteListAdapter.NoteViewHolder>(DiffComparator){
+class NoteListAdapter : ListAdapter<Note, NoteListAdapter.NoteViewHolder>(DiffComparator) {
 
-    class NoteViewHolder(private val binding: NoteListItemBinding)
-        : RecyclerView.ViewHolder(binding.root) {
+    class NoteViewHolder(private val binding: NoteListItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-            fun bind(note: Note, clickListener: View.OnClickListener) {
-                Log.d("NoteListAdapter", "bind: Note bind")
-                binding.note = note
-                binding.clickListener = clickListener
-                binding.executePendingBindings()
-            }
+        fun bind(note: Note, clickListener: View.OnClickListener) {
+            Log.d("NoteListAdapter", "bind: Note bind")
+            binding.note = note
+            binding.clickListener = clickListener
+            binding.executePendingBindings()
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
@@ -54,6 +54,5 @@ class NoteListAdapter : ListAdapter<Note, NoteListAdapter.NoteViewHolder>(DiffCo
         override fun areContentsTheSame(oldItem: Note, newItem: Note): Boolean {
             return oldItem.id == newItem.id
         }
-
     }
 }

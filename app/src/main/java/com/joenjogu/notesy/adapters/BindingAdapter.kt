@@ -3,7 +3,7 @@ package com.joenjogu.notesy.adapters
 import android.util.Log
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import java.util.*
+import java.util.Date
 
 @BindingAdapter("setDate")
 fun TextView.setDate(int: Int) {

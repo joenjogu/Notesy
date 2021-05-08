@@ -14,7 +14,7 @@ class NoteDetailViewModel(private val repository: Repository) : ViewModel() {
     }
 
     fun insertNote(note: Note) {
-        viewModelScope.launch{
+        viewModelScope.launch {
             repository.insertNote(note)
         }
     }
@@ -23,6 +23,5 @@ class NoteDetailViewModel(private val repository: Repository) : ViewModel() {
         viewModelScope.launch {
             repository.deleteNote(noteId)
         }
-
     }
 }

@@ -15,11 +15,12 @@ class WeatherRepository(private val weatherService: WeatherService, private val 
     suspend fun getWeatherResponse() {
         try {
             val weatherResponse = weatherService.getDailyForecast(
-                    NAIROBI_CITY_LAT,
-                    NAIROBI_CITY_LONG,
-                    "current,hourly,minutely",
-                    "metric",
-                    API_KEY)
+                NAIROBI_CITY_LAT,
+                NAIROBI_CITY_LONG,
+                "current,hourly,minutely",
+                "metric",
+                API_KEY
+            )
             Log.d(TAG, "getWeatherResponse: $weatherResponse")
 
             val daily = weatherResponse.daily
@@ -27,10 +28,10 @@ class WeatherRepository(private val weatherService: WeatherService, private val 
             val forecastList = mutableListOf<Forecast>()
             daily.forEach { day ->
                 val forecastResponse = Forecast(
-                        day.dt,
-                        day.temp.day,
-                        day.weather[0].description,
-                        day.weather[0].icon
+                    day.dt,
+                    day.temp.day,
+                    day.weather[0].description,
+                    day.weather[0].icon
                 )
                 forecastList.add(forecastResponse)
             }
@@ -39,11 +40,9 @@ class WeatherRepository(private val weatherService: WeatherService, private val 
             Log.d(TAG, "getWeatherResponse: $deleted")
             val inserted = dao.insertForecast(forecastList)
             Log.d(TAG, "getWeatherResponse: $inserted")
-        }
-        catch (exception : IOException){
+        } catch (exception: IOException) {
             Log.d(TAG, "getForecast: $exception")
-        }
-        catch (exception: NetworkErrorException) {
+        } catch (exception: NetworkErrorException) {
             Log.d(TAG, "getForecast: $exception")
         }
     }
